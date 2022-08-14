@@ -1,0 +1,53 @@
+{
+  "name": "Gulp",
+  "version": "1.0.0",
+  "description": "Gulp",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "autoprefixer": "^10.0.4",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "del": "^6.0.0",
+    "gsap": "^3.9.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-purgecss": "^3.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.0.0",
+    "gulp-webp": "^4.0.0",
+    "isotope-layout": "^3.0.6",
+    "lazysizes": "^5.3.2",
+    "log-symbols": "^4.0.0",
+    "sass": "^1.37.5",
+    "tailwindcss": "^2.0.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp prod"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^31.0.0",
+    "animejs": "^3.2.1",
+    "async": "^3.2.2",
+    "choices.js": "^9.0.1",
+    "countup.js": "^2.0.8",
+    "element-closest-polyfill": "^1.0.4",
+    "flickity": "^2.2.2",
+    "flickity-fade": "^1.0.0",
+    "flickity-imagesloaded": "^2.0.0",
+    "jquery": "^3.6.0",
+    "kute.js": "^2.2.4",
+    "photoswipe": "^4.1.3"
+  }
+}
