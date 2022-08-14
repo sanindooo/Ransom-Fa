@@ -2,9 +2,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
-const html = document.querySelector("html");
-html.setAttribute("lang", "en");
-
 // GSAP and handle resize bug
 $(document).ready(function() {
 			gsap.registerPlugin(ScrollTrigger);
