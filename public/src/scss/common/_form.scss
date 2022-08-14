@@ -1,0 +1,394 @@
+form,
+fieldset {
+    border: 0;
+    padding: 0;
+    font-size: 0;
+    margin: 0;
+}
+
+.fieldgroup {
+
+    &-field {
+        //margin: 0 0 1rem;
+
+        label {
+            display: inline-block;
+            margin: 0 0 .5rem;
+        }
+
+        &.last {
+            margin: 0;
+        }
+    }
+}
+
+input[type=email],
+input[type=file],
+input[type=password],
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 1rem;
+    font: 1rem $base-font-family;
+    color: $dark-blue;
+    background: #fff;
+    border: 1px solid $dark-blue;
+    -webkit-appearance: none;
+    //border-radius: .25rem;
+    box-sizing: border-box;
+
+    &:active {
+        background: #DEEEF3;
+        border: 1px solid $dark-blue;
+    }
+
+    &:focus {
+        outline: 0;
+        background: #DEEEF3;
+        border: 1px solid $dark-blue;
+    }
+
+    &::placeholder {
+        color: $dark-blue;
+    }
+}
+
+input[type=submit] {
+    @include text(0.9rem, 600);
+    background: $blue;
+    text-transform: uppercase;
+    font-family: $base-font-family;
+    padding: 1.5rem 2.5rem;
+    line-height: 1;
+    border-radius: 1rem;
+    -webkit-appearance: none;
+    color: #fff;
+    width: 100%;
+    transition: background .15s ease-in-out;
+
+    @include wi-mq(lap) {
+        width: auto;
+        //@include text(1.3rem, 500);
+    }
+
+    @include hover-focus() {
+        cursor: pointer;
+        background: darken($blue, 5%);
+    }
+}
+
+textarea {
+    resize: vertical;
+}
+
+select {
+    background: url('../../img/blue-down-arrow.svg') #fff no-repeat right 1rem center;
+    background-size: 15px;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        background: #fff;
+    }
+
+    &:focus {
+        background: url('../../img/blue-down-arrow.svg') #fff no-repeat right 1rem center;
+        background-size: 15px;
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            background: #fff;
+        }
+    }
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $base-color;
+
+    &.left {
+        display: block;
+        margin: 0 0 .5rem;
+    }
+
+    &.right {
+        margin: 0 0 0 .5rem;
+        font-weight: 400;
+    }
+}
+
+.field {
+    //margin: 0 0 2rem;
+}
+
+.checkbox {
+    position: relative;
+
+    label {
+        display: block;
+        position: relative;
+        padding: 0 0 0 2rem;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 1rem;
+        height: 25px;
+        width: 25px;
+        background: #fff;
+        border: 1px solid $base-color;
+        border-radius: 5px;
+        transition: background .3s ease-in-out;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 8px;
+            top: 4px;
+            width: 7px;
+            height: 13px;
+            border: solid #fff;
+            border-width: 0px 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    &:hover {
+
+        .checkmark {
+            background: #DEEEF3;
+        }
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked ~ .checkmark {
+            background: $dark-blue;
+
+            &:after {
+                display: block;
+            }
+        }
+    }
+
+}
+
+.field.nocaptcha {
+    margin: 1rem 0 -0.5rem;
+    width: 200px;
+    text-align: left;
+
+    @include wi-mq(lap) {
+        margin: 1rem 0 0;
+    }
+
+    label {
+        color: #fff;
+    }
+
+
+
+    @include wi-mq(lap) {
+        width: 220px;
+    }
+
+    .g-recaptcha {
+        transform:scale(0.75);
+        transform-origin:0 0;
+
+        @include wi-mq(lap) {
+            transform:scale(0.80);
+        }
+
+        @include wi-mq(widescreen) {
+            transform:scale(1);
+        }
+    }
+}
+
+// override default captcha label color of white
+#Form_CareerForm_Captcha_Holder {
+    label {
+        color: $base-color;
+    }
+}
+
+.message {
+    @include text(1rem, 700);
+    display: block;
+    padding: .6rem 1rem;
+    color: #fdfdfd;
+    border-radius: .25rem;
+    margin: 1rem 0;
+
+    &.success,
+    &.good,
+    &.info {
+        background: $success-green;
+    }
+
+    &.warning {
+        background: $warning-orange;
+    }
+
+    &.required,
+    &.validation,
+    &.alert,
+    &.bad,
+    &.error {
+        background: $error-red;
+    }
+}
+
+.pills {
+
+    &:not(.field) {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -.5rem;
+
+        label {
+            display: block;
+        }
+
+        li {
+            display: flex;
+            margin: .5rem;
+            width: 100%;
+
+            @include wi-mq(lap) {
+                width: calc(50% - 1rem);
+            }
+
+            @include wi-mq(desk) {
+                width: auto;
+            }
+
+            label {
+                @include text(1rem, 400);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 2rem;
+                border: 1px solid $light-grey;
+                padding: 1rem 2rem;
+                text-align: center;
+                width: 100%;
+                margin: 0;
+
+                @include hover-focus() {
+                    border: 1px solid $base-color;
+                    cursor: pointer;
+                }
+            }
+
+            input {
+                @include sr-only;
+
+                &:checked {
+
+                    ~ label {
+                        background: $light-grey;
+                    }
+                }
+
+                &:focus {
+
+                    ~ label {
+                        border: 1px solid $base-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+table {
+    width: 100%;
+
+    th,
+    td {
+        border: 2px solid $light-grey;
+        padding: .5rem;
+    }
+}
+
+.contact-form {
+    margin: 0 -1rem;
+
+    .field {
+        padding: 0 1rem;
+
+        &:not(.hidden) {
+            display: inline-block;
+        }
+    }
+
+    .typo {
+        font-size: .9rem;
+    }
+}
+
+.errors {
+
+    li {
+        font-weight: 700;
+        background: #BF0000;
+        display: block;
+        padding: .5rem;
+        margin-top: .5rem;
+        font-size: .9rem;
+        color: #fff;
+    }
+}
+
+.form-btn {
+    display: block;
+    background: $dark-blue;
+    text-transform: capitalize;
+    color: #fff;
+    font-size: 1rem;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    //border-radius: 1rem;
+    font-family: $base-font-family;
+
+    @include hover-focus() {
+        cursor: pointer;
+        background: darken($dark-blue, 10%);
+    }
+
+    @include wi-mq(lap) {
+        font-size: 2rem;
+    }
+}
+
+.floating-message {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 2rem;
+    width: 100%;
+    z-index: 10;
+    transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+
+    @include wi-mq(lap) {
+        width: auto;
+        max-width: 500px;
+    }
+
+    &.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

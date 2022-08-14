@@ -1,0 +1,52 @@
+/*
+ * Fonts
+ */
+
+/* Brand fonts */
+@font-face {
+    font-family: 'KCWonkyTonk';
+    src: url(../fonts/KCWonkyTonk.ttf);
+    src: url(../fonts/KCWonkyTonk.otf);
+    src: url(../fonts/KCWonkyTonk.woff);
+    src: url(../fonts/KCWonkyTonk.woff2);
+}
+
+@font-face {
+    font-family: 'Ftyoverkillironcladnc';
+    src: url(../fonts/Ftyoverkillironcladnc.ttf);
+    src: url(../fonts/Ftyoverkillironcladnc.otf);
+    src: url(../fonts/Ftyoverkillironcladnc.woff);
+    src: url(../fonts/Ftyoverkillironcladnc.woff2);
+}
+
+$default-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$base-font-family: Arial, $default-font;
+$title-font-family: 'KCWonkyTonk', $default-font;
+$brand-font-family: 'Ftyoverkillironcladnc', $default-font;
+
+/*
+ * Colours
+ */
+
+$base-color: #2d2d2d;
+$base-light: #595959;
+$dark-yellow: #7a9629;
+$dark-blue: #30486b;
+$gold: #c7baa2;
+$blue: #1f7cb2;
+$pink: #C482B4;
+$navy: #2C2E35;
+$light-blue: #b6e5f9;
+$light-grey: #acacac;
+$grey: #818B91;
+$dark-grey: #4c4c4c;
+$green: green;
+$orange: #F6A53C;
+
+/*
+ * UI Colours
+ */
+
+$error-red: #BF0000;
+$success-green: #1E7E15;
+$warning-orange: #E66000;

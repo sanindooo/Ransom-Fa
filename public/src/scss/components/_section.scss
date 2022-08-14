@@ -1,0 +1,40 @@
+/*! purgecss start ignore */
+.section {
+    color: $base-color;
+
+    &-header {
+        width: 100%;
+        padding: 0 0 0.5rem;
+        margin: 0 0 0.5rem;
+
+        @include wi-mq(desk) {
+            margin: 0 0 1rem;
+        }
+
+        &__title {
+            @include text(2.5rem, 600);
+            margin: 0;
+
+            @include wi-mq(lap) {
+                @include text(3rem, 600);
+            }
+
+            @include wi-mq(desk) {
+                font-size: 3.25rem;
+                line-height: 1.25;
+            }
+
+            &--light {
+                color: #fff;
+            }
+        }
+
+        &__subtitle {
+            @include text(1.4rem, 400);
+            margin: 1rem 0 0;
+            color: $dark-blue;
+
+        }
+    }
+}
+/*! purgecss end ignore */

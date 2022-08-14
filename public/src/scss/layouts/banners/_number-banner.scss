@@ -1,0 +1,53 @@
+.number-banner {
+    background-color: $base-color;
+
+    &__list {
+
+    }
+
+    &__item {
+
+        @include wi-mq(lap) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__title {
+        font-family: $brand-font-family;
+        color: #fff;
+        @include text(3rem, 600);
+
+        @include wi-mq(lap) {
+            font-size: 3rem;
+        }
+
+        @include wi-mq(desk) {
+            font-size: 3.5rem;
+        }
+
+        @include wi-mq(widescreen) {
+            font-size: 4.5rem;
+        }
+    }
+
+    &__subtitle {
+        color: #fff;
+        font-family: $base-font-family;
+        @include text(1rem, 500);
+
+        @include wi-mq(lap) {
+            font-size: 1.15rem;
+        }
+
+        @include wi-mq(desk) {
+            font-size: 1.25rem;
+        }
+
+        @include wi-mq(widescreen) {
+            font-size: 1.35rem;
+        }
+    }
+}

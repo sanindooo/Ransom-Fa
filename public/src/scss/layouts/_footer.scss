@@ -1,0 +1,53 @@
+.site-footer {
+    padding: 4rem 0 4.75rem;
+    width: 100%;
+    z-index: 999;
+    background: $base-color;
+    color: #fff;
+
+    @include wi-mq(lap) {
+        padding: 3rem 0
+    }
+
+    &__header {
+
+    }
+
+    /* Make Logo White */
+    &__logo {
+
+        img {
+            filter: invert(100%);
+        }
+    }
+
+    &__nav {
+
+    }
+
+    &__list {
+
+    }
+
+    &__item {
+
+    }
+
+    &__link {
+        color: #fff;
+        font-size: 0.9rem;
+
+        &-text {
+            transition: color .3s ease-in-out;
+            &:hover {
+                color: $pink;
+            }
+        }
+    }
+
+    &__text {
+        color: #fff;
+        font-size: 0.9rem;
+    }
+}
+

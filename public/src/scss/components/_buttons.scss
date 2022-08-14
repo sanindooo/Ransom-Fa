@@ -1,0 +1,48 @@
+.button {
+	@include text(1rem, 600);
+	display: inline-block;
+    position: relative;
+    overflow: hidden;
+	padding: 1.25rem 2.25rem;
+    font-family: $base-font-family;
+	line-height: 1;
+	text-align: center;
+    border-radius: 0.5rem;
+	background: $base-color;
+	color: #fff;
+    z-index: 1;
+
+    &__text {
+        z-index: 10;
+        position: relative;
+    }
+
+    .hover {
+        background: #414141;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s ease-in-out;
+        z-index: 1;
+        border-radius: 0.5rem;
+    }
+
+    @include hover-focus() {
+        .hover {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    }
+
+    &--alt {
+        background: #fff;
+        color: $base-color;
+
+        .hover {
+            background: #ccc;
+        }
+    }
+}

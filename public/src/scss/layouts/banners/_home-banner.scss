@@ -1,0 +1,103 @@
+.home-banner {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 7.5rem 0 0;
+
+    @include wi-mq(lap) {
+        padding: 6rem 0 0;
+    }
+
+    .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        transform: rotateZ(180deg);
+    }
+
+    @include wi-mq(lap) {
+        background-position: right;
+        background-size: contain;
+    }
+
+    &__header {
+        margin: 0 0 1rem;
+    }
+
+    &__title {
+        position: relative;
+        z-index: 1;
+
+        @include text(3rem, 600);
+
+        @include wi-mq(lap) {
+            @include text(4rem, 600);
+        }
+
+        @include wi-mq(desk) {
+            font-size: 5rem;
+        }
+    }
+
+    &__text {
+        @include text(1.2rem, 500);
+        color: $base-color;
+
+        @include wi-mq(lap) {
+            margin: 0 0 3rem;
+        }
+    }
+}
+
+.timer {
+    &__header {
+        font-family: $brand-font-family;
+    }
+
+    &__title {
+        font-family: $brand-font-family;
+        font-size: 1rem;
+
+        @include wi-mq(lap) {
+            font-size: 2rem;
+        }
+    }
+
+    &-item {
+        display: flex;
+        flex-direction: column;
+
+        @include wi-mq(lap) {
+            margin: 0 0 1rem;
+        }
+
+        &__num {
+            font-family: $brand-font-family;
+
+            @include text(9vw, 600);
+
+            @include wi-mq(thumb) {
+                @include text(3.5rem, 600);
+            }
+
+            @include wi-mq(lap) {
+                @include text(4rem, 600);
+            }
+
+            @include wi-mq(desk) {
+                font-size: 5rem;
+            }
+        }
+
+        &__unit {
+            font-size: 0.85rem;
+
+            @include wi-mq(lap) {
+                margin: -1rem 0 0;
+                font-size: 1rem;
+            }
+        }
+    }
+}

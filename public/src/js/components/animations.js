@@ -1,51 +1,52 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 // GSAP and handle resize bug
-$(document).ready(function() {
-			gsap.registerPlugin(ScrollTrigger);
-      
-      ScrollTrigger.defaults({
-      		markers: false
-      });
+document.ready(function() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.defaults({
+        markers: false
+    });
 });
 
 // Hero background animation 
 
-$(".sticky-section").each(function (index) {
-  let triggerElement = $(this);
-  let targetElement = $(".sticky-section_image");
+document.getElementByClassName("sticky-section").each(function (index) {
+    let triggerElement = this;
+    let targetElement = document.getElementByClassName("sticky-section_image");
+  
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: triggerElement,
+        
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1
+      }
+    });
+    tl.to(targetElement, {
+      opacity:"1",
+      backgroundSize: "110vw",
+      duration: 1,
+    });
+  });
+  
 
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: triggerElement,
-      // trigger element - viewport
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1
-    }
-  });
-  tl.to(targetElement, {
-    opacity:"1",
-    backgroundSize: "110vw",
-    duration: 1,
-  });
-});
 
 // About scroll animation 
 gridAnim();
 function gridAnim() {
 $(".section.section--about").each(function (index) {
-  let triggerElement = $(this);
-  let background = $(".grid_item");
-	let images = $(".grid_image");
-  let text = $(".scroll-anim")
+  let triggerElement = this;
+  let background = document.getElementByClassName("grid_item");
+	let images = document.getElementByClassName("grid_image");
+  let text = document.getElementByClassName("scroll-anim")
 
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: triggerElement,
-      // trigger element - viewport
+      
       start: "top top",
       end: "bottom bottom+=150px",
       scrub: 1
@@ -114,7 +115,7 @@ musicBlock.forEach( (element) => {
 	let images = element.querySelectorAll(".music-block_image")
   let platforms = element.querySelectorAll(".platform-list_image")
   
-  // timeline 
+  
 	let tl = gsap.timeline()
 	  .from(videos, {
     opacity: 0,
@@ -158,10 +159,10 @@ let tvBlock = document.querySelectorAll(".tv-list_item")
 
 tvBlock.forEach( (element) => {
 	let title = element.querySelectorAll(".tv-block_title")
-  let subtitle = element.querySelectorAll(".tv-block_subtitle")
+    let subtitle = element.querySelectorAll(".tv-block_subtitle")
 	let images = element.querySelectorAll(".tv-block_link")
   
-  // timeline 
+  
 	let tl = gsap.timeline()
 	  .from(images, {
     opacity: 0,
@@ -190,26 +191,28 @@ tvBlock.forEach( (element) => {
 	})
 })
 
-// Event image animation 
-$(".content-block.is--half").each(function (index) {
-  let triggerElement = $(this);
-  let targetElement = $(".event_image");
+// Event image animation
+let contentBlockHalf = document.querySelector(".content-block.is--half");
 
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: triggerElement,
-      // trigger element - viewport
-      start: "top 30%",
-      end: "bottom bottom",
-      scrub: 1
-    }
+contentBlockHalf.forEach(function (index) {
+    let triggerElement = this;
+    let targetElement = document.getElementByClassName("event_image");
+  
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: triggerElement,
+        
+        start: "top 30%",
+        end: "bottom bottom",
+        scrub: 1
+      }
+    });
+    tl.from(targetElement, {
+      opacity:"0",
+      y: 25,
+      duration: 1,
+    });
   });
-  tl.from(targetElement, {
-    opacity:"0",
-    y: 25,
-    duration: 1,
-  });
-});
 
 // Footer Parallax animation 
 const tl = gsap.timeline({

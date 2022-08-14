@@ -1,0 +1,27 @@
+.page {
+    @apply my-8 md:my-20;
+
+    &-container {
+        @apply container relative z-10 my-20 md:my-28 lg:my-36 xl:max-w-screen-xl;
+    }
+
+    &-container--large {
+        @apply container relative z-10 my-32 xl:max-w-screen-xl;
+    }
+
+    &-container--narrow {
+        @apply container relative z-10 px-10 my-20 md:px-20 md:my-28 lg:my-36 xl:max-w-screen-xl;
+    }
+
+    &-container--no-mb {
+        @apply container relative z-10 mt-32 xl:max-w-screen-xl;
+    }
+
+    &-container--no-top {
+        @apply container relative z-10 mb-20 md:mb-28 lg:mb-36 xl:max-w-screen-xl;
+    }
+
+    &-container--short {
+        @apply container relative z-10 my-14 md:my-20 lg:my-24 xl:max-w-screen-xl;
+    }
+}

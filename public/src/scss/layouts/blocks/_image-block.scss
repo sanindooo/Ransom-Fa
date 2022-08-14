@@ -1,0 +1,81 @@
+.image-block {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &--swap {
+        .image-block__content {
+            order: 1;
+
+            &--light {
+                order: 1;
+            }
+        }
+    }
+
+    &--dark {
+        background-color: $navy;
+    }
+
+    &__content {
+
+        &--light {
+
+
+        }
+    }
+
+    &__img {
+        position: relative;
+
+        &-item {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+
+            &--more-rounded {
+                border-radius: 1.5rem;
+            }
+        }
+
+        .blob-motion {
+            transform: scale(0.87) translate(-37%, -22%);
+            position: absolute;
+            z-index: -1;
+
+            @include wi-mq(thumb) {
+                transform: scale(1.6) translateX(-12.5%);
+            }
+
+            @include wi-mq(lap) {
+                transform: scale(2) translate(-6%, 6%);
+            }
+
+            @include wi-mq(desk) {
+                transform: scale(1.2) translate(-20.5%, -5%);
+            }
+
+            @include wi-mq(widescreen) {
+                transform: scale(1.6) translate(-11%, 0%);
+            }
+        }
+
+        &-bg {
+            background-color: $base-color;
+            width: 84%;
+            height: 100%;
+            position: absolute;
+            z-index: -1;
+
+            @include wi-mq(thumb) {
+                width: 90%;
+            }
+
+            &--light {
+                background-color: #fff;
+            }
+        }
+    }
+}

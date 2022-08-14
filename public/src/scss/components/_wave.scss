@@ -1,0 +1,32 @@
+.wave {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    width: 100vw;
+    left: 0;
+    right: 0;
+
+    @include wi-mq(lap) {
+        bottom: -3rem;
+    }
+
+    svg {
+
+        g {
+            height: 5rem;
+            width: 100vw;
+        }
+    }
+
+    &--medium-blue {
+
+    }
+
+    &--blue {
+
+    }
+
+    &--light-blue {
+
+    }
+}

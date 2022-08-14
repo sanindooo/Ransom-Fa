@@ -1,0 +1,399 @@
+.nav {
+    //margin: 1.5rem 0;
+    background: $base-color;
+    height: auto;
+    width: 70vw;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    padding: 2rem;
+
+    @include wi-mq(lap) {
+        width: 30vw;
+    }
+
+    // mobile to desk
+    @include wi-mq(desk) {
+        display: flex;
+        position: relative;
+        align-items: center;
+        overflow: visible;
+        justify-content: flex-end;
+        margin: 0;
+        background: 0;
+        width: 100%;
+        padding: 0;
+        transform: translateX(0%);
+    }
+
+    &.active {
+        //width: 60vw;
+        //margin: 2rem 0 0;
+        transform: translateX(0%);
+    }
+
+    &-right {
+        &.active {
+            display: block;
+            //margin: 0 0 3.5rem;
+        }
+    }
+
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        //margin: 1rem 0;
+
+        &__item {
+            position: relative;
+            width: 100%;
+            margin: 0 0 1rem;
+
+            // mobile to desk
+            @include wi-mq(desk) {
+                width: auto;
+                padding: 1rem 0;
+                margin: 0;
+                justify-content: space-between;
+
+                // style search icon when not home page
+                svg {
+                    path {
+                        &:last-of-type {
+                            fill: $dark-blue;
+                        }
+                    }
+                }
+            }
+
+            //.child-nav {
+            //    display: none;
+            //}
+
+            &.active {
+
+                .child-nav {
+                    display: block;
+                }
+            }
+
+            &:hover {
+
+                .child-nav {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &:focus-within {
+
+                .child-nav {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        &__link {
+            display: block;
+            position: relative;
+            width: 100%;
+            word-break: keep-all;
+            padding: .25rem 0;
+            color: #fff;
+            font-family: $base-font-family;
+            @include text(1rem, 600);
+            transition: color .3s ease-in-out;
+
+            &--home {
+                color: #fff;
+            }
+
+            &--children {
+                width: calc(100% - (50px + 1.5rem));
+            }
+
+            .nav-list__icon {
+                display: none;
+                margin: 0 0 0 .3rem;
+                transition: color .3s ease-in-out;
+
+                // mobile to desk
+                @include wi-mq(desk) {
+                    display: block;
+                    font-size: 1.3rem;
+
+                    svg {
+                        width: .75rem;
+                    }
+                }
+
+                @include wi-mq(desk) {
+                    svg {
+                        width: 1rem;
+                    }
+                }
+            }
+
+            &--disabled {
+
+                &:hover, &:focus {
+                    cursor: default;
+                }
+            }
+
+            &--current {
+                text-decoration: underline;
+            }
+
+            @include wi-mq(lap) {
+                padding: .25rem 0;
+            }
+
+            // mobile to desk
+            @include wi-mq(desk) {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                //text-align: center;
+                padding: 1rem .75rem;
+                margin: 0 0.15rem 0 0;
+                color: $base-color;
+                //@include text(0.7rem, 300);
+                text-align: left;
+
+                &--current {
+                    //color: $dark-blue;
+                    position: relative;
+                    text-decoration: none;
+
+                    &:after {
+                        content: "";
+                        border-bottom: $gold double 4px;
+                        width: 90%;
+                        height: 2px;
+                        position: absolute;
+                        bottom: 0;
+                    }
+
+                    .nav-list__icon {
+                        color: #fff;
+                    }
+                }
+            }
+
+            @include wi-mq(desk) {
+                //@include text(1rem, 300);
+                margin: 0 .75rem 0 0;
+            }
+
+            @include wi-mq(widescreen) {
+                font-size: 1.2rem;
+                margin: 0 1rem 0 0;
+            }
+
+            .line {
+                position: absolute;
+                display: none;
+                background: $pink;
+                height: 3px;
+                border-radius: 2rem;
+                width: 0;
+                bottom: 0;
+                transition: width .35s ease-in-out;
+
+                @include wi-mq(desk) {
+                    display: block;
+                }
+            }
+
+            &:hover, &:focus {
+                color: $pink;
+
+                .line {
+                    width: 100%;
+                }
+                // mobile to desk
+                @include wi-mq(desk) {
+                    color: $pink;
+
+                    .nav-list__icon {
+                        color: $pink;
+                    }
+                }
+            }
+
+            &--cta {
+
+                @extend .button;
+
+                border-radius: 0.5rem;
+                background: #fff;
+                color: $base-color;
+                padding: 1rem;
+                text-align: center;
+
+                @include wi-mq(lap) {
+                    @include text(0.8rem, 600);
+                    display: inline-block;
+                    line-height: 1;
+                    transition: background .15s ease-in-out;
+                }
+
+                &:hover, &:focus {
+
+                    @include wi-mq(lap) {
+                        background: $base-color;
+                        color: #fff;
+                    }
+                }
+
+                @include wi-mq(desk) {
+                    background: $base-color;
+                    color: #fff;
+                    font-size: 1rem;
+                    margin: 0 0 0 1.75rem;
+                }
+            }
+
+            &:hover, &:focus {
+
+                ~ .child-nav {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        &__icon {
+            display: inline-block;
+        }
+    }
+
+    &-btn {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 1.15rem;
+
+        &__icon {
+            svg {
+                width: 1.5rem;
+                height: 1.5rem;
+
+                path {
+                    fill: #fff;
+                }
+            }
+        }
+
+        // mobile to desk
+        @include wi-mq(desk) {
+            display: none;
+        }
+    }
+}
+
+.child-nav {
+    display: none;
+    width: 100%;
+    //padding: 0 0 0 1.5rem;
+    z-index: 2;
+
+    &:before {
+        content: '';
+        display: none;
+        height: 30px;
+        width: 30px;
+        transform: rotate(45deg);
+        position: absolute;
+        left: 25px;
+        top: -10px;
+        background: $dark-blue;
+        //border-radius: 5px;
+
+        // mobile to desk
+        @include wi-mq(desk) {
+            display: block;
+        }
+    }
+
+    // mobile to desk
+    @include wi-mq(desk) {
+        display: block;
+        width: 250px;
+        padding: 0;
+        position: absolute;
+        top: 100%;
+        //left: 1.5rem;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &-list {
+        position: relative;
+        z-index: 1;
+        //background: $dark;
+        overflow: hidden;
+        //padding: 1rem 0;
+
+        @include wi-mq(lap) {
+            //border-radius: 8px;
+            background: $dark-blue;
+            padding: 1rem 0;
+        }
+
+        &__link {
+            display: block;
+            font-family: $base-font-family;
+            color: #fff;
+            text-align: center;
+            padding: .75rem 1.5rem;
+            @include text(0.8rem, 300);
+            transition: background .3s ease-in-out;
+
+            // mobile to desk
+            @include wi-mq(desk) {
+                padding: 1rem 1.5rem;
+                //@include text(0.8rem, 300);
+                text-align: left;
+                line-height: 1.2;
+                font-size: 0.9rem;
+                color: $base-color;
+            }
+
+            &:hover, &:focus {
+
+                @include wi-mq(lap) {
+                    background: darken($dark-blue,10%);
+                }
+            }
+
+            &--current {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// make svg icon blue on white bg pages
+.fill-blue {
+
+    @include wi-mq(lap) {
+        svg {
+
+            path {
+
+                &:last-of-type {
+                    fill: $dark-blue;
+                }
+            }
+        }
+    }
+}

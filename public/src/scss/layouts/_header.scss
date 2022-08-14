@@ -1,0 +1,110 @@
+.site-header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    top: 0;
+    left: 0;
+    padding: 1.25rem 0;
+    width: 100%;
+    z-index: 999;
+    position: fixed;
+
+    @include wi-mq(lap) {
+        padding: 0;
+        // position: static;
+    }
+
+    &__content {
+
+    }
+
+    // mobile to desk
+    &.active {
+        //background: $dark-blue;
+        //height: auto;
+        //overflow-y: auto;
+
+        @include wi-mq(desk) {
+            background: #fff;
+        }
+    }
+}
+
+.site-header--home {
+    color: $dark-blue;
+}
+
+.site-logo {
+    transition: transform .3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    // mobile to desk
+    &.active {
+        //display: none;
+
+        @include wi-mq(desk) {
+            visibility: visible;
+        }
+    }
+
+    @include wi-mq(lap) {
+        padding: 1rem .25rem 1rem 0;
+    }
+}
+
+.mobile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    padding: .5rem 1rem;
+    background: $base-color;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    margin: auto 0;
+
+    @include wi-mq(desk) {
+        display: none;
+    }
+
+    &:hover, &:focus {
+        cursor: pointer;
+    }
+
+    &__icon {
+        fill: #fff;
+
+        &--close {
+            display: none;
+            fill: #fff;
+        }
+    }
+
+    &.active {
+        //margin: .75rem auto 0 0;
+
+        .mobile-btn__icon--open {
+            display: none;
+        }
+
+        .mobile-btn__icon--close {
+            display: block;
+        }
+    }
+}
+
+#mobileBtnClose {
+    padding: .5rem 1.25rem;
+}
+
+
+.home-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem 1.25rem;
+    width: 60px;
+    height: 60px;
+}

@@ -1,0 +1,63 @@
+.whole {
+    top: 50%;
+    left: 120%;
+    transform: translate(-50%,-50%);
+
+    @include wi-mq(thumb) {
+        left: 100%;
+    }
+}
+
+.item {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    overflow: hidden;
+    background-color: $pink;
+    z-index: 1;
+
+    @include wi-mq(thumb) {
+        width: 120px;
+        height: 120px;
+    }
+
+    @include wi-mq(lap) {
+        width: 150px;
+        height: 150px;
+    }
+
+    @include wi-mq(desk) {
+        width: 170px;
+        height: 170px;
+    }
+
+    img {
+        transform: rotateZ(90deg);
+    }
+}
+
+.circle {
+    height: 300px;
+    width: 300px;
+    overflow: visible;
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    @include wi-mq(thumb) {
+        height: 400px;
+        width: 400px;
+    }
+
+    @include wi-mq(lap) {
+        height: 450px;
+        width: 450px;
+    }
+}
+
+.st0 { 
+    fill: none;
+    stroke-miterlimit:1;
+}
